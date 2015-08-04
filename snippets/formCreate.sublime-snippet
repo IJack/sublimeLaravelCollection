@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+{!! Form::open(["url"=>"${1:formVar}"]) !!}
+	{{-- Inserting Partial for the form--}}
+	@include('${1:formVar}.form', ['submitButtonText' => '${2:Create}'])
+{!! Form::close() !!}
+
+@if (\$errors->any())
+	<ul class="alert alert-danger">
+		@foreach (\$errors->all() as \$error)
+			<li>{{ \$error }}</li>
+	 	@endforeach
+	</ul>		
+@endif
+
+@stop
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>form-create</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
